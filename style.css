@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+body {
+  text-align: center;
+  background-image: linear-gradient(
+    0deg,
+    rgba(247, 247, 247, 1) 23.8%,
+    rgba(252, 221, 221, 1) 92%
+  );
+  height: 100vh;
+  font-family: 'Lato';
+}
+h1 {
+  margin: 0 auto;
+  margin: 100px 10px 20px 10px;
+}
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.container .image {
+  /* width: 50%; */
+  /* height: 50%; */
+  width: 27%;
+  /* width: inherit; */
+  /* height: 110px; */
+}
+#cover {
+  width: 27%;
+  /* width: inherit; */
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+}
+.bar-container .image .circle {
+  position: absolute;
+  background-color: white;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  z-index: 1;
+  left: 50px;
+  top: 17px;
+}
+.bar-container {
+  background-color: #fff;
+  box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 100px;
+}
+.ctrl {
+  margin-right: 20px;
+  margin-left: 10px;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+/* cover starts rotating */
+.bar-container.play #cover {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ctrl button {
+  background-color: #fff;
+  border: 0;
+  color: #a89da8;
+  font-size: 20px;
+  cursor: pointer;
+}
+.ctrl :nth-child(2) {
+  font-size: 25px;
+}
+/* ----pop up */
+.info {
+  background-color: rgb(80 36 36 / 15%);
+  width: 75%;
+  height: 70px;
+  border-radius: 15px;
+  position: absolute;
+  top: -50px;
+  right: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+/* the name of the surah appears */
+.info.play {
+  opacity: 1;
+}
+.pop-up {
+  margin-left: 20px;
+}
+.pop-up h4 {
+  text-align: left;
+  margin-left: 50px;
+}
+.pop-up .progress-bar {
+  margin-left: 50px;
+  position: absolute;
+  bottom: 25px;
+  right: 2px;
+  background-color: white;
+  width: 76%;
+  height: 4px;
+  border-radius: 5px;
+}
+.pop-up .progress-bar .movable {
+  /* margin-left: 50px; */
+  /* position: absolute; */
+  /* bottom: 25px; */
+  /* right: 2px; */
+  background-color: black;
+  width: 0%;
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.1s ease-out;
+}
+
+@media (max-width: 400px) {
+  #cover {
+    max-height: 86%;
+  }
+  .bar-container .image .circle {
+    display: none;
+  }
+}
+
+@media (max-width: 290px) {
+  #cover {
+    max-height: 60%;
+  }
+  .bar-container .image .circle {
+    display: none;
+  }
+}
+@media (max-width: 200px) {
+  #cover {
+    max-height: 55%;
+  }
+  .bar-container .image .circle {
+    display: none;
+  }
+  .ctrl button {
+    font-size: 15px;
+  }
+  .ctrl :nth-child(2) {
+    font-size: 20px;
+  }
+  .pop-up h4 {
+    /* margin-left: 0px; */
+    margin-left: 10px;
+    color: red;
+  }
+}
